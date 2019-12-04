@@ -1,0 +1,303 @@
+<!GPA Calculator Lia Johnson 11/6/18 >
+<! Drexel Grading Scale
+    A+= 4.0
+    A=4.0
+    A-= 3.67
+    B+=3.33
+    B= 3.0Do
+    B-=2.67
+    C+=2.33
+    C=2.0
+    C-=1.67
+    D+=1.33
+    D=1.0
+    F=0.0
+>
+<html>
+    <head>
+        <title> GPA Calculator</title>
+        <script>
+            function calculate(){
+                var gpa;
+                var credit=0.0;
+                var totalHours=0.0;
+                var sum=0.0;
+                var grade=0;
+                var prefix1 = "grade";
+                var prefix2 = "credit";
+                //loop through all the user inputs and collect the grade and credit hrs put in for each class 
+                for(var i=1; i<9; i++){
+                   grade= Number(document.getElementById(prefix1 +i).value);
+                   credit= Number(document.getElementById(prefix2 +i).value);
+                    //see if they have inputted credits but no grade
+                    //cant do the other way around because some classes (COOP 101)are 0 credits
+                    if((document.getElementById(prefix1 +i).value==" ") && (document.getElementById(prefix2+i).value!="0")){
+                        alert("please enter a grade for all classes you have inputed credits for!");
+                    }
+                    else{
+                        //make sure credit is valid (positive) 
+                        //if so multiply credit by grade and add that value to sum
+                        //add credit value to totalHours
+                        if(credit>=0){
+                            sum+=credit*grade;
+                            totalHours+=credit;
+                        }
+                        //if credit hour is not valid send an alert
+                        else{
+                            alert("please enter a non-negative credit.");
+                        }
+                    }
+                }
+                //calculate gpa by dividing sum by totalHours
+                gpa= sum/totalHours;
+                //display gpa to user and make sure it only goes to 2 decimal places
+                document.getElementById("output").value= "Your GPA is: " + gpa.toFixed(2);
+            }
+        </script>
+        
+    </head>
+    <body>
+        <center>
+            <h1> Welcome to the GPA Calculator</h1>
+            <h2>Here you can input your classes and grades and we will compute your GPA for the quarter!</h2>
+        <p>
+            In the table below you may enter up to 8 courses. Please enter your class name (This is not mandatory but is here to help you organize so that you dont accidentally input the same grade for a class twice!), your current grade (A+,A,A- etc.), and the number of credit hours your course is worth. If you are putting less than 8 classes into the calculator please leave the default 0 as the credit  value. If you have any questions please refer to the <a href="https://www.cs.drexel.edu/~lej42/GPACalcDocumentation.html">GPA Calculator Documentation Page</a>.
+        </p>
+        
+        <table style="width: 500">
+            <tbody>
+                <tr>
+                    <th> Course</th>
+                    <th> Grade</th>
+                    <th>Credits</th>
+                </tr>
+                <!Row 1 (use this row as basis for other 7 rows)>
+                <tr>
+                    <th>
+                        <!text box for class>
+                        <input type= "text" name="class" id="class1" value="Class 1">
+                    </th>
+                   <th>
+                       <!drop down grade menu>
+                       <select name= "grade" id="grade1">
+                           <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <!text box for credit input>
+                        <input type= "text" name="credit" id="credit1" value="0">
+                    </th>
+                </tr>
+                <!Row 2>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class2" value="Class 2">
+                    </th>
+                   <th>
+                       <select id="grade2">
+                           <option value="-1">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit2" value="0">
+                    </th>
+                </tr>
+                <!Row 3>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class3" value="Class 3">
+                    </th>
+                   <th>
+                       <select id="grade3">
+                           <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit3" value="0">
+                    </th>
+                </tr>
+                <!Row 4>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class4" value="Class 4">
+                    </th>
+                   <th>
+                       <select id="grade4">
+                          <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit4" value="0">
+                    </th>
+                </tr>
+                <!Row 5>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class5" value="Class 5">
+                    </th>
+                   <th>
+                       <select id= "grade5">
+                          <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit5" value="0">
+                    </th>
+                </tr>
+                <!Row 6>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class6" value="Class 6">
+                    </th>
+                   <th>
+                       <select id="grade6">
+                          <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit6" value="0">
+                    </th>
+                </tr>
+                <!Row 7>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class7" value="Class 7">
+                    </th>
+                   <th>
+                       <select id="grade7">
+                          <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit7" value="0">
+                    </th>
+                </tr>
+                <!Row 8>
+                <tr>
+                    <th>
+                        <input type= "text" name="class" id="class8" value="Class 8">
+                    </th>
+                   <th> 
+                       <select id="grade8">
+                           <option value=" ">-- Select Grade --</option>
+                           <option value="4.0">A+</option>
+                           <option value="4.0">A</option>
+                           <option value="3.67">A-</option>
+                           <option value="3.33">B+</option>
+                           <option value="3.0">B</option>
+                           <option value="2.67">B-</option>
+                           <option value="2.33">C+</option>
+                           <option value="2.0">C</option>
+                           <option value="1.67">C-</option>
+                           <option value="1.33">D+</option>
+                           <option value="1.0">D</option>
+                           <option value="0.0">F</option>
+                           
+                       </select> 
+                    </th>
+                    <th>
+                        <input type= "text" name="credit" id="credit8" value="0">
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+            <! button to caluclate GPA, calls on the calculate function>
+            <p>
+            <button type="button" onclick="calculate()">Calculate GPA </button>
+            </p>
+            <!text area where GPA is outputted>
+            <textarea id="output" rows="2" cols="40">Here is where your GPA will be shown.</textarea>
+        </center>
+    </body>
+    </html>

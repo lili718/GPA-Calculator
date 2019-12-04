@@ -1,0 +1,36 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <center>
+            <h1> GPA Calculator Documentation</h1>
+        </center>
+    </body>
+    <h2> Drexel's Grading Scale</h2> 
+    <ul>
+        <li>A+ = 4.0</li>
+        <li>A = 4.0</li>
+        <li>A- = 3.67</li>
+        <li>B+ = 3.33</li>
+        <li>B= 3.0</li>
+        <li>B- = 2.67</li>
+        <li>C+ = 2.33</li>
+        <li>C = 2.0</li>
+        <li>C- = 1.67</li>
+        <li>D+ = 1.33</li>
+        <li>D = 1.0</li>
+        <li>F = 0.0</li>
+    </ul>
+    <h2>User Manual</h2>
+    <p>
+      In the table you may enter up to 8 courses. You are given the option to enter a class name for each of your classes, you do not have to do this but it asn option so that you can stay organized and not accidentally enter a grade for the same class twice. Use the drop down menu to select your grade and if you are inputting less than 8 classes leave the grades for the emoty classes as the default "Select Grade". Along with the grade, insert the number of credit hours the course is worth if you are inputting less than 8 classes leave the credit hours for those blank classes as the default "0". Courses left blank will not affect your GPA. Once you finish inputting all of you data hit the "Calculate" button, beneath the table, and your GPA will be displayed in the text box below the table.
+    </p>
+    <h2> Description of Code</h2>
+    <p>
+        We are taking the users input of their grades and credits associated with their classes and calculating their GPA based on the grading scale and GPA calculations used at Drexel. The table displayed on the page is made with 2 input boxes with a drop down menu for in the middle for grade entry. These three same things are just repeated 7 times with different id names to make up the full table. I am getting the users input by having my function "generate", be ran after the user presses the generate button, that function has a for loop that loops through all the grades and credits inputted by the user.There are alse warnings set in place by if statements within the for loop to make sure the user can only input certain things and when they input something wrong it sends them an alert. To calculate GPA we are taking each grade put in and multiplying it by the number of credit hours associated with it, we then add that value to a sum value. After all of the inputs have been looped through we take the total amount in the sum variable and divide it by the total number of credits to get the users GPA. The GPA (up to 2 decimal points) is then displayed to the user in the text box below the table.  If you have any further questions about the code, please refer to the comments throughout or feel free to get in contact with me.
+    </p>
+    <h2>Testing Calculator for Accuracy</h2>
+    <p>
+        There were lots of little tests performed throughout the coding process to get different aspects of the code/webpage functional, but once everything was fully operational there was only 2 big tests. To test the calculator i put in a set of grades and credit hrs for which i knew the corrent GPA associated with it. At first the GPA my code returned was incorrect, causing me to discover my GPA formula was incorrect. After figuring out that I had to multiply each grade value by its credit hour before dividing them all by the total credit hours, i tested my calculator again with the corrected GPA formula and it was gave the correct GPA. I tested it with 3 other sets of grades and credits for which i knew the correct GPA and continued to recieve the correct GPAs (as well as testing to make sure when I input an invalid input I recieved an alert), so I was able to conclude that my GPA calculator was funtional and accurate.
+    </p>
+</html>
